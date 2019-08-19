@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>US Energy Visualization</title>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <button id="button1">Button 1</button>
+        <button id="button2">Button 2</button>
+    </body>
+    <script>
+        $(function () {
+            $('#button1').click(function() {
+                $.ajax({
+                    url: '/button1',
+                    data: {
+                        "status": "sent button1 click"
+                    },
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+            $('#button2').click(function() {
+                $.ajax({
+                    url: '/button2',
+                    data: {
+                        "status": "sent button2 click"
+                    },
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        })
+    </script>
+</html>
